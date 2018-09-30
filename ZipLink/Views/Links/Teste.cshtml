@@ -1,0 +1,16 @@
+﻿@model ZipLink.Models.Link
+
+@{
+    ViewBag.Title = "Teste";
+}
+
+<form action="~/Links/Teste" method="post">
+    @Html.TextBoxFor(x => x.Description, new { @class="form-control", placeholder="Digite a descrição" })
+    @Html.ValidationMessageFor(x => x.Description)
+    <br />
+    @Html.TextBoxFor(x => x.Url)
+    @Html.ValidationMessageFor(x => x.Url)
+    <br />
+    <button type="submit">Enviar</button>
+</form>
+

@@ -1,0 +1,7 @@
+﻿#conteudo {
+    margin-top: 2em;
+}
+
+.input-validation-error {
+    background-color: lightcoral;
+}

@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Adicionar";
+}
+
+@if (TempData.ContainsKey("adicionado"))
+{
+    <script>
+        alert("O link @TempData["adicionado"] foi adastrado com sucesso!");
+    </script>
+}
+
+@if (TempData.ContainsKey("Invalido"))
+{
+    <script>
+        alert("O link @TempData["Invalido"] está incorreto");
+    </script>
+}
+
+<h1>Informe os dados do link para adicionar</h1>
+
+<form action="/links/add" method="post">
+    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="description" placeholder="Descrição..." />
+    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="url" placeholder="URL..." />
+    <button id="btnAdd" class="btn btn-primary"> Adicionar </button>
+</form>
+
+

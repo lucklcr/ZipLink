@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Remove";
+}
+
+@if(TempData.ContainsKey("Excluido"))
+{
+    <script>
+        alert("O Link @TempData["Excluido"] foi excluido!")
+    </script>
+}
+
+@using ZipLink.Models
+@model List<Link>
+
+<form action="/links/remove" method="get">
+    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="filtro" placeholder="Insira seu texto..." />
+    <button class="btn btn-primary"> Pesquisar </button>
+</form>
+
+@if (Model != null)
+{
+
+    <table class="table table-bordered table-striped">
+        <tr class="table-header">
+            <th>Id</th>
+            <th>Descrição</th>
+            <th>Visitas</th>
+            <th>Última Visita</th>
+            <th>Habilitado</th>
+            <th>Go</th>
+        </tr>
+
+
+
+
+        }
+
+        @foreach (Link link in Model)
+        {
+            <tr>
+                <td>@link.Id</td>
+                <td>@link.Description</td>
+                <td>@link.Visits</td>
+                <td>@link.LastVisit</td>
+                <td>@link.Enabled</td>
+                <td><a class="btn btn-danger" href="~/links/remove/@link.Id"> Remover </a></td>
+            </tr>
+        }
+
+
+    </table>
+}
+
